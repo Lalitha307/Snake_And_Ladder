@@ -8,21 +8,22 @@ public class SnakeAndLadderGame {
             int dieRoll = random.nextInt(6) + 1;
             int option = random.nextInt(3);
             switch (option) {
-                case 0:
+                case 0: // No Play
                     break;
-                case 1:
-                    playerPosition += dieRoll;
-                    if (playerPosition > 100) {
-                        playerPosition -= dieRoll; // Stay in the same position
+                case 1: // Ladder
+                    if (playerPosition + dieRoll <= 100) {
+                        playerPosition += dieRoll;
                     }
                     break;
-                case 2:
+                case 2: // Snake
                     playerPosition -= dieRoll;
                     if (playerPosition < 0) playerPosition = 0;
                     break;
             }
+
             System.out.println("Player is at position: " + playerPosition);
         }
-        System.out.println("Player wins the game!");
+
+        System.out.println("Player wins the game by reaching position 100!");
     }
 }
